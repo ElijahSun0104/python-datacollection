@@ -22,8 +22,7 @@ for title in all_titles:
   all_links = title.findAll("a")
   for link in all_links:
     print(link.string)
-2.2
-完整带for循环的代码：
+2.2完整带for循环的代码：
 headers = {"User-Agent": "xxx"……}
 for start_num in range(0,250，25)：#结束值不包含在范围里
  request.get("网页完整的url{start_num}",headers = headers)
