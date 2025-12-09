@@ -6,19 +6,6 @@
 请求行包括方法类型（get）、资源路径（要采集的网页的后半截）和协议版本
 请求头包括主机域名（host）（网页前半段）、user-agent（声明请求由谁发出）、accept（客户端想接收的响应数据类型，html/json）等
 请求体一般放客户端传给服务器端其他任意数据，但是get方法的请求体一般是空的
-代码操作：
-1.1获取网页内容
-import request
-#用requests库的函数发送请求时，请求头信息不需要手动传入，但是如果将爬虫程序伪装成正常浏览器的话，需要构建一个headers
-headers = {"User-Agent": "xxx"……} #怎么看：查看网页源代码-network-刷新一下网页-点击任意请求-展开request headers
-  
-request.get("网页完整的url",headers = headers) #print它会返回该网页状态码，如果是200说明请求成功，可以正常访问
-#如果要根据状态码进行判断是否成功的话，测试代码如下
-response = request.get("网页完整的url")
-if response.ok:
-  print(response.text) #text属性会以string存储响应内容，因此可以直接获取网页源码
-else:
-  print("请求失败")
 1.2返回http响应
 响应也由三个部分组成，状态行、相应头和响应体
 状态行包括协议版本、状态码和状态消息
