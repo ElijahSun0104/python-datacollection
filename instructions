@@ -24,29 +24,6 @@ table是表格，thead一般表示表格的第一行，tbody表示表格主体�
 class作用是定义元素类名称
 div和span是容器，一般要采集的数据很多都是它们的子元素，它们的区别就是div是块级元素，一般会独占一块，但span是内联元素，不会独占一块
 br表示换行，img加图片，这两只有起始标签，没有闭合标签，（可以通过此来进行定位）
-2.1
-from bs4 import BeautifulSoup
-import requests
-content = requests.get("网页完整的url").text #将string存储在contenr中
-soup = BeautifulSoup(content,"html.parser") #将内容解析成树状结构
-all_prices = soup.findAll("p",attrs={"class":"price_color"}) #寻找共性属性
-for price in all_prices:
-  print(price.string)#可以在string后切片
-all_titles = soup.findAll("h3")
-for title in all_titles:
-  all_links = title.findAll("a")
-  for link in all_links:
-    print(link.string)
-2.2
-完整带for循环的代码：
-headers = {"User-Agent": "xxx"……}
-for start_num in range(0,250，25)：#结束值不包含在范围里
- request.get("网页完整的url{start_num}",headers = headers)
- content = requests.get("网页完整的url").text #将string存储在contenr中
- soup = BeautifulSoup(content,"html.parser") #将内容解析成树状结构
- all_prices = soup.findAll("p",attrs={"class":"price_color"}) #寻找共性属性
- for price in all_prices:
-  print(price.string)#可以在string后切片
 #3.存储或分析数据
 目的：存储我们要得到的数据
 库：re 作用是通过正则表达式对采集到的数据进行预处理
